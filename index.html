@@ -31,7 +31,7 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="time">
                     Time
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="time" type="text" x-model="time" pattern="[0-9][0-9]:[0-5][0-9]">
+                <input x-mask="99:99" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="time" type="text" x-model="time" pattern="[0-9][0-9]:[0-5][0-9]">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="distance">
@@ -88,6 +88,7 @@
             </ul>
         </div>
     </div>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script>
         function initSessions() {
