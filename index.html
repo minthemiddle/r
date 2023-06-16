@@ -12,72 +12,6 @@
             font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.9.0/dist/cdn.min.js" defer></script>
-    <script>
-        function initSessions() {
-
-            const sessions = JSON.parse(localStorage.getItem('sessions')) || [];
-
-            return {
-                sessions,
-                date: new Date().toISOString().slice(0, 10),
-                time: '',
-                count: '',
-                distance: '',
-                calories: '',
-                level: '',
-                saveSession() {
-                    const session = {
-                        date: this.date,
-                        time: this.time,
-                        count: parseInt(this.count),
-                        distance: parseFloat(this.distance),
-                        calories: parseFloat(this.calories),
-                        level: parseInt(this.level),
-                    };
-                    this.sessions.push(session);
-                    localStorage.setItem('sessions', JSON.stringify(this.sessions));
-                    this.resetForm();
-                },
-                resetForm() {
-                    this.date = '';
-                    this.time = '';
-                    this.count = '';
-                    this.distance = '';
-                    this.calories = '';
-                    this.level = '';
-                },
-                copySessions() {
-                const jsonl = this.sessions.map(({date, time, count, distance, calories, level}) => {
-                    return JSON.stringify({ date, time, count, distance, calories, level });
-                }).join('\n') + '\n';
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(jsonl);
-                } else {
-                    console.error(jsonl);
-                }
-                },
-                deleteAllsessions() {
-                    this.sessions = [];
-                    localStorage.setItem('sessions', JSON.stringify([]));
-                },
-                editsession(index) {
-                    const {date, time, count, distance, calories, level} = this.sessions[index];
-                    this.date = date;
-                    this.time = time;
-                    this.count = count;
-                    this.distance = distance;
-                    this.calories = calories;
-                    this.level = level;
-                    this.deletesession(index);
-                },
-                deletesession(index) {
-                    this.sessions.splice(index, 1);
-                    localStorage.setItem('sessions', JSON.stringify(this.sessions));
-                }
-            };
-        }
-    </script>
 </head>
 <body class="bg-gray-100" x-data="initSessions()">
     <div class="container mx-auto py-10 px-4">
@@ -154,5 +88,71 @@
             </ul>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.9.0/dist/cdn.min.js" defer></script>
+    <script>
+        function initSessions() {
+
+            const sessions = JSON.parse(localStorage.getItem('sessions')) || [];
+
+            return {
+                sessions,
+                date: new Date().toISOString().slice(0, 10),
+                time: '',
+                count: '',
+                distance: '',
+                calories: '',
+                level: '',
+                saveSession() {
+                    const session = {
+                        date: this.date,
+                        time: this.time,
+                        count: parseInt(this.count),
+                        distance: parseFloat(this.distance),
+                        calories: parseFloat(this.calories),
+                        level: parseInt(this.level),
+                    };
+                    this.sessions.push(session);
+                    localStorage.setItem('sessions', JSON.stringify(this.sessions));
+                    this.resetForm();
+                },
+                resetForm() {
+                    this.date = '';
+                    this.time = '';
+                    this.count = '';
+                    this.distance = '';
+                    this.calories = '';
+                    this.level = '';
+                },
+                copySessions() {
+                const jsonl = this.sessions.map(({date, time, count, distance, calories, level}) => {
+                    return JSON.stringify({ date, time, count, distance, calories, level });
+                }).join('\n') + '\n';
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(jsonl);
+                } else {
+                    console.error(jsonl);
+                }
+                },
+                deleteAllsessions() {
+                    this.sessions = [];
+                    localStorage.setItem('sessions', JSON.stringify([]));
+                },
+                editsession(index) {
+                    const {date, time, count, distance, calories, level} = this.sessions[index];
+                    this.date = date;
+                    this.time = time;
+                    this.count = count;
+                    this.distance = distance;
+                    this.calories = calories;
+                    this.level = level;
+                    this.deletesession(index);
+                },
+                deletesession(index) {
+                    this.sessions.splice(index, 1);
+                    localStorage.setItem('sessions', JSON.stringify(this.sessions));
+                }
+            };
+        }
+    </script>
 </body>
 </html>
