@@ -2,7 +2,10 @@
 
 Track your rowing sessions on the go.  
 And copy to clipboard to add to your global stats.  
-Only saved on your current device, no cloud, no sync.  
+Only saved on your current device, no cloud, no sync. 
+
+Hosted live app: https://rudern.martinbetz.eu
+ 
 
 ## Current limitations
 
