@@ -9,7 +9,8 @@ Hosted live app: https://rudern.martinbetz.eu
 
 ## Current limitations
 
-- No PWA yet, you cannot save on mobile's home
+- Install on Android using your browser’s install option. On iOS, open the Share menu in Safari and choose Add to Home Screen.
+- After the first online visit, the app works offline. Sessions stay on the device and are not synced or backed up.
 - Not optimized: Huge CSS, bad UX, unclear copy
 
 ## Contribute
